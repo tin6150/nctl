@@ -1,3 +1,6 @@
+
+==> this is a fork / containerization of NTCL, upstream repo is https://gitlab.com/ntcl/ntcl <==
+
 # Nuclear Tensor Contraction Library (NTCL)
 
 ## Introduction
