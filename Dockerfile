@@ -31,7 +31,9 @@ RUN echo  ''  ;\
     export TERM=dumb      ;\
     export NO_COLOR=TRUE  ;\
     apt-get update ;\
-    apt-get -y --quiet install git git-all file wget curl gzip bash zsh fish tcsh less vim procps screen tmux ;\
+    apt-get -y --quiet install apt-utils ;\
+    apt-get -y --quiet install git  file wget curl gzip bash zsh fish tcsh less vim procps screen tmux ;\
+    apt-get -y --quiet install git-all git-el ;\
     apt-get -y --quiet install python3 python-git-doc python-gitlab-doc ;\
     apt-get -y --quiet install apt-file ;\
     dpkg --list | tee -a dpkg--list.out ;\
