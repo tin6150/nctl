@@ -55,7 +55,6 @@ RUN echo ''  ;\
 
 # add some marker of how Docker was build.
 COPY .              /opt/gitrepo/container/
-COPY dispatcher.sh  /
 #COPY Dockerfile*   /opt/gitrepo/container/
 
 
@@ -155,8 +154,7 @@ ENV JAVA_HOME=/usr/bin
 #ENTRYPOINT /opt/gitrepo/beast/bin/beast $*    # untested
 #ENTRYPOINT [ "/opt/gitrepo/beast/bin/beast" ]
 #ENTRYPOINT [ "/usr/bin/mb" ]
-ENTRYPOINT [ "/dispatcher.sh"]
-#ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "/bin/bash" ]
 #ENTRYPOINT [ "Rscript", "/opt/gitrepo/atlas/main.R" ]
 #ENTRYPOINT [ "Rscript", "/main.R" ]
 
