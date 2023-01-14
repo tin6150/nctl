@@ -33,8 +33,10 @@ RUN echo  ''  ;\
     export NO_COLOR=TRUE  ;\
     apt-get update ;\
     apt-get -y --quiet install apt-utils ;\
-    apt-get -y --quiet install git  file wget curl gzip bash zsh fish tcsh less vim procps screen tmux ;\
+    apt-get -y --quiet install git  make gfortran gcc  ;\
     apt-get -y --quiet install git-all git-el ;\
+    apt-get -y --quiet install python3-git python3-gitlab python3-github ;\
+    apt-get -y --quiet install file wget curl gzip bash zsh fish tcsh less vim procps screen tmux ;\
     apt-get -y --quiet install python3 python-git-doc python-gitlab-doc ;\
     apt-get -y --quiet install apt-file ;\
     dpkg --list | tee -a dpkg--list.out ;\
@@ -74,7 +76,7 @@ RUN echo  ''  ;\
     echo '==================================================================' ;\
     cd /opt/gitrepo/container      ;\
     git branch | tee ./git.branch.out.txt                 ;\
-    ./build_ntcl.sh  2>&1 | tee build_ntcl.teeOut.log ;\
+    bash -x ./build_ntcl.sh  2>&1 | tee build_ntcl.teeOut.log ;\
     cd /    ;\
     echo ""
 

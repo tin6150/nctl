@@ -20,12 +20,27 @@ git clone https://gitlab.com/ntcl/ntcl-examples.git
 
 cd ${NTCL_ROOT}/ntcl-util
 make | tee -a make.log
+make test | tee -a make_test.log
 
-${NTCL_ROOT}/ntcl-data
+cd ${NTCL_ROOT}/ntcl-data
 make | tee -a make.log
+make test | tee -a make_test.log
 
-${NTCL_ROOT}/ntcl-tensor
+cd ${NTCL_ROOT}/ntcl-tensor
 make | tee -a make.log
+make test | tee -a make_test.log
 
-${NTCL_ROOT}/ntcl-algorithms
+cd ${NTCL_ROOT}/ntcl-algorithms
 make | tee -a make.log
+make test | tee -a make_test.log
+
+
+cd ${NTCL_ROOT}/ntcl-build
+bin/ntcl-build.py -h   # sanity check, that it has all required settings and it can at least load
+mkdir /scratch
+bin/ntcl-build.py -c -b /scratch/ntcl
+# ^^ fails?
+
+bin/ntcl-build.py -c -t -s default.cuda
+# ^^ fails?
+
