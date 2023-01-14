@@ -53,27 +53,11 @@ RUN echo ''  ;\
     cd /     ;\
     echo ""
 
-# add some marker of how Docker was build.
 COPY .              /opt/gitrepo/container/
 
 
-# clone other companion ntcl repos 
-RUN echo  ''  ;\
-    touch _TOP_DIR_OF_CONTAINER_  ;\
-    echo "stage flag -- clone companion ntcl repos" | tee -a _TOP_DIR_OF_CONTAINER_  ;\
-    date | tee -a       _TOP_DIR_OF_CONTAINER_ ;\
-    export TERM=dumb      ;\
-    export NO_COLOR=TRUE  ;\
-    echo ""  ;\
-    cd /opt/gitrepo     ;\
-    git clone https://gitlab.com/ntcl/ntcl-build.git     ;\
-    echo "$?" | tee -a clone.nctl-build.status.out ;\
-    git clone https://gitlab.com/ntcl/ntcl-examples.git     ;\
-    echo "$?" | tee -a clone.nctl-examples.status.out ;\
-    cd /     ;\
-    echo ""  
 
-
+# add some marker of how Docker was build.
 RUN echo  ''  ;\
     touch _TOP_DIR_OF_CONTAINER_  ;\
     echo "begining docker build process at " | tee -a _TOP_DIR_OF_CONTAINER_  ;\
@@ -88,13 +72,13 @@ RUN echo  ''  ;\
     echo " calling external shell script..." | tee -a _TOP_DIR_OF_CONTAINER_  ;\
     date | tee -a      _TOP_DIR_OF_CONTAINER_                                 ;\
     echo '==================================================================' ;\
-    cd /opt/gitrepo/nctl-build     ;\
-    git branch |tee ./git.branch.out.txt                 ;\
-    bin/ntcl-build.py -c  2>&1 | tee nctl-build.teeOut.log ;\
+    cd /opt/gitrepo/container      ;\
+    git branch | tee ./git.branch.out.txt                 ;\
+    ./build_ntcl.sh  2>&1 | tee build_ntcl.teeOut.log ;\
     cd /    ;\
     echo ""
 
-ENV DBG_CONTAINER_VER  "Dockerfile 2023.0113 draft1"
+ENV DBG_CONTAINER_VER  "Dockerfile 2023.0113 draft3"
 ENV DBG_DOCKERFILE Dockerfile
 
 
