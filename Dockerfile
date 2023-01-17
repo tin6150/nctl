@@ -1,12 +1,12 @@
 # Dockerfile for creating container to host nctl -- for gpu benchmark on greta
 
 
-FROM debian:bullseye 
+## FROM debian:bullseye 
 ## FROM debian:bullseye ## vanilla container, no CUDA
 ## FROM nvidia/cuda:11.7.1-devel-ubuntu22.04  # hung A5000 with cuda 11.4/centos 7.9 (b15)
 ## FROM nvidia/cuda:11.2.1-devel-ubuntu18.04  # n0005 CUDA 11.2 >>  wrong opencl-icd
 ## FROM nvidia/cuda:11.4.2-devel-ubuntu18.04  # n0259 CUDA 11.4
-#FROM nvidia/cuda:11.4.2-devel-ubuntu20.04
+FROM nvidia/cuda:11.4.2-devel-ubuntu20.04
 #?? FROM nvidia/cuda:11.4.0-devel-centos7
 # default aka :latest no longer supported.  https://hub.docker.com/r/nvidia/cuda
 

@@ -43,6 +43,8 @@ cd ${NTCL_ROOT}/ntcl-build
 # ^^ fails
 
 cd ${NTCL_ROOT}/
-./ntcl-build/bin/ntcl-build.py -c -t -s default.cuda 2>&1 | tee ntcl-build.teeOut.txt
+./ntcl-build/bin/ntcl-build.py -u                    2>&1 | tee ntcl-build-u.teeOut.txt
+./ntcl-build/bin/ntcl-build.py -c -t -s default.cuda 2>&1 | tee ntcl-build.default.cuda.teeOut.txt
+./ntcl-build/bin/ntcl-build.py -c -t -s      ws.cuda 2>&1 | tee ntcl-build.ws.cuda.teeOut.txt
 # ^^ work like this?
 
