@@ -37,11 +37,12 @@ make test | tee -a make_test.log
 
 cd ${NTCL_ROOT}/ntcl-build
 ./bin/ntcl-build.py -h   # sanity check, that it has all required settings and it can at least load
+./bin/ntcl-build.py -l  2>&1 | tee ntcl-build.listTest.teeOut.txt  # check list option
 #mkdir /scratch
 #bin/ntcl-build.py -c -b /scratch/ntcl
 # ^^ fails
 
 cd ${NTCL_ROOT}/
-./ntcl-build/bin/ntcl-build.py -c -t -s default.cuda
+./ntcl-build/bin/ntcl-build.py -c -t -s default.cuda 2>&1 | tee ntcl-build.teeOut.txt
 # ^^ work like this?
 
