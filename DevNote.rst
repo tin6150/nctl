@@ -1,6 +1,7 @@
 
-docker pull ghcr.io/tin6150/nctl:main
-docker tag  ghcr.io/tin6150/nctl:main registry.greta.local:443/ntcl:main
+docker pull ghcr.io/tin6150/ntcl:main
+docker tag  ghcr.io/tin6150/ntcl:main registry.greta.local:443/ntcl:main
+docker tag  ghcr.io/tin6150/ntcl:main registry.greta.local:443/ntcl:deb1
 docker image push                     registry.greta.local:443/ntcl:main
 docker run  --gpus all -it --entrypoint=/bin/bash   registry.greta.local:443/ntcl:main  
 
