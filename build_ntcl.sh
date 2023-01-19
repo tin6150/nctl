@@ -53,9 +53,13 @@ cd ${NTCL_ROOT}/
 ./ntcl-build/bin/ntcl-build.py -u                    2>&1 | tee ntcl-build-u.teeOut.txt
 #./ntcl-build/bin/ntcl-build.py -c -t -s default.cuda 2>&1 | tee ntcl-build.default.cuda.teeOut.txt
 #./ntcl-build/bin/ntcl-build.py -c     -t -s      ws.cuda 2>&1 | tee ntcl-build.ws.cuda.teeOut.txt
-./ntcl-build/bin/ntcl-build.py -c -cl -t -f default.cuda 2>&1 | tee ntcl-build.default.cuda.teeOut.txt
+cp -p container/default.cuda .
+cp -p container/machinefile.cuda .
+cp -p container/scan.sh .
+
+./ntcl-build/bin/ntcl-build.py -c -cl -t -f ./default.cuda 2>&1 | tee ntcl-build.default.cuda.teeOut.txt
 # ^^ work like this?
 
 ls -l ntcl-examples/bin/timed_mm.x
 
-# run scan.sh script once build is complete, customization maybe required
+# run scan.bash script once build is complete, customization maybe required

@@ -80,7 +80,7 @@ RUN echo  ''  ;\
     cd /    ;\
     echo ""
 
-ENV DBG_CONTAINER_VER  "Dockerfile 2023.0113 draft3"
+ENV DBG_CONTAINER_VER  "Dockerfile 2023.0119 draftG1"
 ENV DBG_DOCKERFILE Dockerfile
 
 

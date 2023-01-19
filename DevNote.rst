@@ -3,6 +3,7 @@ docker pull ghcr.io/tin6150/ntcl:main
 docker tag  ghcr.io/tin6150/ntcl:main registry.greta.local:443/ntcl:main
 docker tag  ghcr.io/tin6150/ntcl:main registry.greta.local:443/ntcl:deb1
 docker tag  ghcr.io/tin6150/ntcl:main registry.greta.local:443/ntcl:cuda1
+docker tag  ghcr.io/tin6150/ntcl:main registry.greta.local:443/ntcl:cudaG1
 
 docker image push                     registry.greta.local:443/ntcl:main
 docker run  --gpus all -it --entrypoint=/bin/bash   registry.greta.local:443/ntcl:main  
@@ -38,6 +39,10 @@ ntcl-build/bin/ntcl-build.py -c -cl -t -f /mnt/default.cuda
 ls -l ntcl-examples/bin/timed_mm.x
 
 # -cl is for clean
+
+ntcl-algorithms/bin/unittest.x  # unit test
+
+scan.sh # benchmark using ntcl, need param config for specific gpu.  A10 has 24G RAM
 
 ~~~~~
 
