@@ -26,12 +26,18 @@ just to make sure that everything works without gpu's.
 docker run -it -v ~tin/tin-gh/ntcl:/mnt ghcr.io/tin6150/nctl:main
 
 
-c02> 
-docker run -it -v ~tin/tin-gh/ntcl:/mnt registry.greta.local:443/ntcl:cuda1
+c02>  # with Gustav 2023.01.19
+docker run -it --gpus all -v ~tin/tin-gh/ntcl:/mnt registry.greta.local:443/ntcl:cuda1
+docker run -it --gpus 0 -v ~tin/tin-gh/ntcl:/mnt registry.greta.local:443/ntcl:cuda1
 
 export CUDA_GCC_DIR=/usr/bin
 export CUDADIR=/usr/local/cuda-11
+export CUDA_ROOT=$CUDADIR
+
 ntcl-build/bin/ntcl-build.py -c -cl -t -f /mnt/default.cuda
+ls -l ntcl-examples/bin/timed_mm.x
+
+# -cl is for clean
 
 ~~~~~
 
