@@ -1,0 +1,5 @@
+system = default
+compiler_suite = gcc
+use_cuda = 1
+use_cublas = 1
+required_env_variables = CUDADIR
